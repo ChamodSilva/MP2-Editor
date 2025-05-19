@@ -17,7 +17,7 @@ function AppRoutes(props)
             
             <Route path="/contact-page" element={<ContactUsPage />} />
 
-            <Route path="/hello-world" element={<Typography>Hello World!</Typography>} />
+            {/* <Route path="/hello-world" element={<Typography>Hello World!</Typography>} /> */}
         </Routes>
     );
 }
