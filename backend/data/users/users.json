@@ -1,0 +1,13 @@
+[
+  {
+    "username": "admin",
+    "password": "admin",
+    "superuser": true,
+    "joinDate": "2025-01-20T20:21:33.399Z",
+    "lastLoggedIn": "2025-05-20T22:11:32.274Z",
+    "lastUpdate": "2025-01-20T20:21:33.399Z",
+    "profilePicture": "../data/users/admin/pictures/avatar.png",
+    "bio": "",
+    "location": ""
+  }
+]

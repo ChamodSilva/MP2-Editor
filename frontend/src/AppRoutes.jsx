@@ -1,23 +1,17 @@
-// Libray Imports
-import { Typography } from "@mui/material";
-import { Routes, Route } from "react-router";
-// Container Imports
-import ExplorePage from "./containers/ExplorePage.jsx";
-import EditPage from "./containers/EditPage.jsx";
-import ContactUsPage from "./containers/ContactUsPage.jsx";
+import { Routes, Route } from 'react-router-dom';
+import ExplorePage from './containers/ExplorePage.jsx';
+import EditPage from './containers/EditPage.jsx';
+import ContactUsPage from './containers/ContactUsPage.jsx';
 
-function AppRoutes(props)
-{
-
+function AppRoutes({ loggedInUser, userPassword }) {
     return (
         <Routes>
-            <Route index element={<ExplorePage />} />
-
-            <Route path="/edit-page" element={<EditPage />} />
-            
+            <Route path="/" element={<ExplorePage />} />
+            <Route
+                path="/edit-page"
+                element={<EditPage loggedInUser={loggedInUser} userPassword={userPassword} />}
+            />
             <Route path="/contact-page" element={<ContactUsPage />} />
-
-            {/* <Route path="/hello-world" element={<Typography>Hello World!</Typography>} /> */}
         </Routes>
     );
 }
