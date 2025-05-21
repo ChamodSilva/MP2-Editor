@@ -6,15 +6,12 @@ const User = require('../models/User.js');
 
 const USERS_FILE = path.join(__dirname, '../data/users/users.json');
 
-// Helper Functions for User Data File Management
-
 async function readUsersFile()
 {
     // READ USERS FILE
-    // TYPE: fs.readFile https://nodejs.org/api/fs.html#fsreadfilepath-options-callback
+    // TYPE: fs.readFile 
     try
     {
-        // FIX: Added 'await' before fs.readFile
         const data = await fs.readFile(USERS_FILE, 'utf8');
         return JSON.parse(data);
     }
@@ -33,7 +30,7 @@ async function readUsersFile()
 async function writeUsersFile(users)
 {
     // WRITE USERS FILE
-    // TYPE: fs.writeFile https://nodejs.org/api/fs.html#fswritefilefile-data-options-callback
+    // TYPE: fs.writeFile 
     try
     {
         const usersToSave = users.map(user =>

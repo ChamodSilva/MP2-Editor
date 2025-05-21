@@ -1,9 +1,7 @@
-// EditPage.jsx
 import { useState, useEffect } from 'react';
 import { Box, Button, Typography } from '@mui/material';
 import JSEditor from '../components/JSEditor';
 
-// loggedInUser is an object, and userPassword is a direct prop
 function EditPage({ loggedInUser, userPassword })
 {
     const [code, setCode] = useState('');
@@ -29,8 +27,8 @@ function EditPage({ loggedInUser, userPassword })
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'username': loggedInUser.username, // Access username from the object
-                    'password': userPassword,           // Use the password prop
+                    'username': loggedInUser.username,
+                    'password': userPassword,
                 },
                 body: JSON.stringify({ code }),
             });
@@ -60,7 +58,7 @@ function EditPage({ loggedInUser, userPassword })
             // Only attempt to load if logged in and password is available
             if (!loggedInUser || !userPassword)
             {
-                setCode(''); // Clear code if not logged in
+                setCode('');
                 return;
             }
 
@@ -68,8 +66,8 @@ function EditPage({ loggedInUser, userPassword })
             {
                 const response = await fetch(`${backendUrl}/load`, {
                     headers: {
-                        'username': loggedInUser.username, // Access username from the object
-                        'password': userPassword,           // Use the password prop
+                        'username': loggedInUser.username,
+                        'password': userPassword,
                     },
                 });
                 if (response.ok)
@@ -81,19 +79,18 @@ function EditPage({ loggedInUser, userPassword })
                 {
                     const errorData = await response.json();
                     console.error('Failed to load code:', errorData.error || 'Unknown error');
-                    setCode(''); // Clear code on load failure
+                    setCode('');
                 }
             }
             catch (error)
             {
                 console.error('Error loading code:', error);
-                setCode(''); // Clear code on network error
+                setCode('');
             }
         }
 
-        // Trigger loadCode when loggedInUser or userPassword changes
         loadCode();
-    }, [loggedInUser, userPassword]); // Dependencies for useEffect
+    }, [loggedInUser, userPassword]);
 
     // Conditional rendering based on logged-in state
     if (!loggedInUser)
